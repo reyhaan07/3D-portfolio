@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Reyhaan S — B.Tech IT Developer</title>
+    <meta name="description" content="Reyhaan S — B.Tech IT developer. An aerospace-inspired interactive 3D portfolio. Building. Solving. Deploying." />
+    <meta name="theme-color" content="#05070b" />
+    <meta property="og:title" content="Reyhaan S — B.Tech IT Developer" />
+    <meta property="og:description" content="Building. Solving. Deploying. An aerospace-inspired interactive 3D portfolio." />
+    <meta property="og:image" content="fallback/jet-poster.jpg" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preload" as="image" href="fallback/jet-poster.jpg" />
+  </head>
+  <body class="is-booting">
+    <!-- ░░ Layers 1–4: background → 3D environment → fighter jet → atmosphere ░░ -->
+    <div class="stage" aria-hidden="true">
+      <div class="stage__poster"></div>
+      <canvas id="scene" class="stage__canvas"></canvas>
+      <div class="stage__scrim"></div>
+    </div>
+
+    <!-- ░░ Layer 5: HUD ░░ -->
+    <div class="hud" aria-hidden="true">
+      <div class="hud__corners"><i></i><i></i><i></i><i></i></div>
+
+      <div class="hud__compass">
+        <div class="hud__compass-strip" data-hud="compass"></div>
+        <span class="hud__compass-caret"></span>
+        <span class="hud__compass-value" data-hud="heading">270</span>
+      </div>
+
+      <div class="hud__tape hud__tape--left">
+        <span class="hud__tape-label">ALT</span>
+        <div class="hud__tape-scale" data-hud="alt-scale"></div>
+        <span class="hud__tape-value" data-hud="alt">31,000</span>
+      </div>
+      <div class="hud__tape hud__tape--right">
+        <span class="hud__tape-label">KTS</span>
+        <div class="hud__tape-scale" data-hud="spd-scale"></div>
+        <span class="hud__tape-value" data-hud="spd">470</span>
+      </div>
+
+      <div class="hud__reticle" data-hud="reticle">
+        <i></i><i></i><i></i><i></i>
+        <span class="hud__reticle-diamond"></span>
+        <span class="hud__reticle-label"><b>RS-01</b> <span data-hud="range">TRK</span></span>
+      </div>
+
+      <div class="hud__readout">
+        <div><span>THR</span><b data-hud="thr">72%</b></div>
+        <div><span>G</span><b data-hud="g">1.0</b></div>
+        <div><span>BANK</span><b data-hud="bank">0°</b></div>
+        <div><span>MODE</span><b data-hud="mode">CRUISE</b></div>
+      </div>
+
+      <div class="hud__horizon" data-hud="horizon"><i></i><i></i></div>
+    </div>
+
+    <!-- ░░ Layer 6: portfolio content ░░ -->
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Reyhaan S — home">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 L19 14 L29 19 L29 22 L19 19.5 L18 26 L21.5 28.5 L21.5 30 L16 28.6 L10.5 30 L10.5 28.5 L14 26 L13 19.5 L3 22 L3 19 L13 14 Z" /></svg>
+        <span>RS<em>-01</em></span>
+      </a>
+      <nav class="nav" aria-label="Sections">
+        <a href="#home" data-nav="0"><small>01</small>Home</a>
+        <a href="#about" data-nav="1"><small>02</small>About</a>
+        <a href="#skills" data-nav="2"><small>03</small>Skills</a>
+        <a href="#projects" data-nav="3"><small>04</small>Projects</a>
+        <a href="#training" data-nav="4"><small>05</small>Training</a>
+        <a href="#contact" data-nav="5"><small>06</small>Contact</a>
+      </nav>
+      <div class="status">
+        <span class="status__dot"></span>
+        <span class="status__text">SYS ONLINE</span>
+        <span class="status__clock" data-hud="clock">UTC --:--:--</span>
+      </div>
+    </header>
+
+    <aside class="rail" aria-hidden="true">
+      <span class="rail__track"><span class="rail__fill" data-hud="rail"></span></span>
+      <span class="rail__sector" data-hud="sector">SECTOR 01 · HOME</span>
+    </aside>
+
+    <main id="content">
+      <!-- HOME -->
+      <section id="home" class="section section--hero" data-section="0">
+        <div class="hero">
+          <p class="hero__status" data-reveal>
+            <span class="blip"></span> SYSTEMS ONLINE <span class="sep">//</span> FLIGHT RS-01 <span class="sep">//</span> ALL SYSTEMS NOMINAL
+          </p>
+          <h1 class="hero__title" data-reveal data-scramble>REYHAAN&nbsp;S</h1>
+          <p class="hero__role" data-reveal>B.TECH IT DEVELOPER</p>
+          <p class="hero__tagline" data-reveal>Building. Solving. Deploying.</p>
+          <div class="hero__actions" data-reveal>
+            <a class="btn btn--primary" href="#projects"><span>View Projects</span></a>
+            <a class="btn" href="https://github.com/reyhaan07" target="_blank" rel="noopener"><span>GitHub</span></a>
+          </div>
+        </div>
+        <a class="scroll-cue" href="#about"><span>Scroll to engage</span><i></i></a>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="section section--left" data-section="1">
+        <div class="panel" data-reveal>
+          <p class="panel__kicker">Sector 02 <span>//</span> Pilot Profile</p>
+          <h2 class="panel__title" data-scramble>About</h2>
+          <p class="panel__lead">
+            I'm Reyhaan, a B.Tech Information Technology developer who approaches software the way engineers approach flight:
+            design with intent, test relentlessly and ship with confidence.
+          </p>
+          <p>
+            I enjoy the whole mission, from turning a rough idea into a plan to writing the code and putting it in
+            front of real users. This portfolio is itself one of those missions: a hand-built WebGL flight
+            rendered live in your browser.
+          </p>
+          <dl class="specs">
+            <div><dt>Callsign</dt><dd>RS-01</dd></div>
+            <div><dt>Discipline</dt><dd>B.Tech — Information Technology</dd></div>
+            <div><dt>Operating mode</dt><dd>Build · Solve · Deploy</dd></div>
+            <div><dt>Status</dt><dd class="ok">Open to opportunities</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills" class="section section--right" data-section="2">
+        <div class="panel" data-reveal>
+          <p class="panel__kicker">Sector 03 <span>//</span> Systems Loadout</p>
+          <h2 class="panel__title" data-scramble>Skills</h2>
+          <p class="panel__lead">The systems I build with, checked and ready for deployment.</p>
+          <div class="loadout">
+            <div class="module">
+              <h3><span>SYS-A</span> Languages</h3>
+              <ul class="chips"><li>JavaScript</li><li>Python</li><li>Java</li><li>C</li><li>SQL</li></ul>
+            </div>
+            <div class="module">
+              <h3><span>SYS-B</span> Web &amp; Graphics</h3>
+              <ul class="chips"><li>HTML</li><li>CSS</li><li>React</li><li>Node.js</li><li>Three.js / WebGL</li></ul>
+            </div>
+            <div class="module">
+              <h3><span>SYS-C</span> Tooling &amp; Ops</h3>
+              <ul class="chips"><li>Git &amp; GitHub</li><li>Linux</li><li>Vite</li><li>VS Code</li><li>Deployment</li></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="section section--wide" data-section="3">
+        <div class="missions-head" data-reveal>
+          <p class="panel__kicker">Sector 04 <span>//</span> Mission Log</p>
+          <h2 class="panel__title" data-scramble>Projects</h2>
+        </div>
+        <div class="missions">
+          <article class="mission" data-reveal>
+            <header><span class="mission__id">MSN-01</span><span class="mission__state ok">Deployed</span></header>
+            <h3>RS-01 Aerospace Portfolio</h3>
+            <p>
+              This site: a cinematic, real-time WebGL flight with a procedurally modelled fighter, custom GLSL
+              atmosphere, engine and post-processing effects, and adaptive quality for every device.
+            </p>
+            <ul class="chips chips--small"><li>Three.js</li><li>GLSL</li><li>WebGL2</li><li>Vite</li></ul>
+            <a class="mission__link" href="https://github.com/reyhaan07/3D-portfolio" target="_blank" rel="noopener">Source →</a>
+          </article>
+          <article class="mission mission--classified" data-reveal>
+            <header><span class="mission__id">MSN-02</span><span class="mission__state">Classified</span></header>
+            <h3>Next Deployment</h3>
+            <p>Briefing pending. A new mission is being prepared for launch and will be declassified here soon.</p>
+            <ul class="chips chips--small"><li>In development</li></ul>
+            <a class="mission__link" href="https://github.com/reyhaan07" target="_blank" rel="noopener">Follow on GitHub →</a>
+          </article>
+          <article class="mission mission--classified" data-reveal>
+            <header><span class="mission__id">MSN-03</span><span class="mission__state">Classified</span></header>
+            <h3>Awaiting Clearance</h3>
+            <p>Reserved for the next build. Check the GitHub hangar for the latest work in progress.</p>
+            <ul class="chips chips--small"><li>Standby</li></ul>
+            <a class="mission__link" href="https://github.com/reyhaan07?tab=repositories" target="_blank" rel="noopener">Repositories →</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- TRAINING -->
+      <section id="training" class="section section--left" data-section="4">
+        <div class="panel" data-reveal>
+          <p class="panel__kicker">Sector 05 <span>//</span> Flight Training</p>
+          <h2 class="panel__title" data-scramble>Training</h2>
+          <ol class="timeline">
+            <li>
+              <span class="timeline__tag">Academic</span>
+              <h3>B.Tech — Information Technology</h3>
+              <p>Core computer science: data structures &amp; algorithms, databases, operating systems, networks and software engineering.</p>
+            </li>
+            <li>
+              <span class="timeline__tag">Simulator</span>
+              <h3>Self-directed engineering</h3>
+              <p>Learning by shipping. I build projects end to end, from the front-end and 3D graphics to the back-end and deployment.</p>
+            </li>
+            <li>
+              <span class="timeline__tag timeline__tag--pending">Pending</span>
+              <h3>Certifications</h3>
+              <p>Slot reserved for upcoming certifications and courses.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section section--right" data-section="5">
+        <div class="panel" data-reveal>
+          <p class="panel__kicker">Sector 06 <span>//</span> Comms Link</p>
+          <h2 class="panel__title" data-scramble>Contact</h2>
+          <p class="panel__lead">Destination reached. The channel is open. Collaborations, internships and opportunities are all welcome.</p>
+          <div class="comms">
+            <a class="btn btn--primary" href="https://github.com/reyhaan07" target="_blank" rel="noopener"><span>GitHub · @reyhaan07</span></a>
+            <a class="btn" href="https://github.com/reyhaan07?tab=repositories" target="_blank" rel="noopener"><span>Browse repositories</span></a>
+            <!-- Add an email channel:  <a class="btn" href="mailto:you@example.com"><span>Send a transmission</span></a> -->
+          </div>
+          <p class="comms__meta"><span class="blip"></span> Link stable <span class="sep">//</span> Encryption nominal <span class="sep">//</span> Awaiting your signal</p>
+        </div>
+        <footer class="footer">© <span data-year>2026</span> Reyhaan S · Flight RS-01 · Built with Three.js</footer>
+      </section>
+    </main>
+
+    <div class="boot" aria-hidden="true">
+      <div class="boot__inner">
+        <p class="boot__title">RS-01 <span>// FLIGHT SYSTEMS</span></p>
+        <ul class="boot__log" data-boot-log></ul>
+        <div class="boot__bar"><i data-boot-bar></i></div>
+      </div>
+    </div>
+
+    <noscript><style>.boot{display:none}.stage__poster{opacity:1}[data-reveal]{opacity:1;transform:none}</style></noscript>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

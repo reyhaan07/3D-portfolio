@@ -1,0 +1,19 @@
+{
+  "name": "reyhaan-3d-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Aerospace-inspired interactive 3D portfolio of Reyhaan S",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "poster": "node scripts/render-poster.mjs"
+  },
+  "dependencies": {
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "vite": "^8.3.1"
+  }
+}
